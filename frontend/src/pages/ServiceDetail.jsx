@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
+import SEO from "../components/seo/SEO";
 import { motion } from "framer-motion";
 import { services } from "../data/services";
 import Button from "../components/ui/Button";
@@ -30,6 +31,20 @@ export default function ServiceDetail() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="relative min-h-screen bg-bg-primary select-none font-sans-body w-full overflow-hidden text-text-primary"
     >
+      <SEO 
+        title={`${service.title} | Snortweb Technology`} 
+        description={`Detailed insights into ${service.title} provided by Snortweb Technology.`}
+        canonical={`/services/${slug}`}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": service.title,
+          "provider": {
+            "@type": "Organization",
+            "name": "Snortweb Technology"
+          }
+        }}
+      />
       {/* Background visual indicators */}
       <div className="pattern-noise absolute inset-0 pointer-events-none z-0" />
       <div className="pattern-horizontal-lines absolute inset-0 pointer-events-none z-0" />

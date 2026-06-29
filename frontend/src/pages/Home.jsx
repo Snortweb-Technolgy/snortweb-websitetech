@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import SEO from "../components/seo/SEO";
 import Hero from "../components/sections/Hero";
 import Marquee from "../components/sections/Marquee";
 import Manifesto from "../components/sections/Manifesto";
@@ -20,6 +21,17 @@ export default function Home() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="w-full"
     >
+      <SEO 
+        title="Snortweb Technology | Website Development & Cyber Security" 
+        description="Modern websites with security and performance built-in. Web development and cybersecurity solutions for growing businesses."
+        canonical="/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Snortweb Technology",
+          "url": "https://snortweb.com"
+        }}
+      />
       <Hero />
       <Marquee />
       <Manifesto />

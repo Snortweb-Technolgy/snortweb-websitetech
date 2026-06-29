@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import SEO from "../components/seo/SEO";
 import { useNavigate } from "react-router-dom";
 import { services } from "../data/services";
 import { ServiceCard } from "../components/sections/Services";
@@ -16,6 +17,19 @@ export default function ServicesPage() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="relative min-h-screen bg-bg-primary select-none font-sans-body w-full overflow-hidden text-text-primary"
     >
+      <SEO 
+        title="Website Development Services | Snortweb Technology" 
+        description="Explore our premium web development and cybersecurity services. We build scalable, dynamic, and secure web applications tailored to your needs."
+        canonical="/services"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "provider": {
+            "@type": "Organization",
+            "name": "Snortweb Technology"
+          }
+        }}
+      />
       {/* Background decorations */}
       <div className="pattern-noise absolute inset-0 pointer-events-none z-0" />
       <div className="pattern-horizontal-lines absolute inset-0 pointer-events-none z-0" />

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/seo/SEO";
 import { motion } from "framer-motion";
 import Button from "../components/ui/Button";
 
@@ -14,6 +15,11 @@ export default function NotFound() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-6 font-sans-body select-none overflow-hidden bg-bg-primary text-text-primary"
     >
+      <SEO 
+        title="Page Not Found | Snortweb Technology" 
+        description="The page you are looking for does not exist."
+        noindex={true}
+      />
       {/* Background visual elements */}
       <div className="pattern-noise absolute inset-0 pointer-events-none z-0" />
       <div className="pattern-horizontal-lines absolute inset-0 pointer-events-none z-0" />

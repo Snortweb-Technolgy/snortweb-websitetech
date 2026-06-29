@@ -199,6 +199,7 @@ export default function Navbar() {
             <button
               onClick={handleDismissBar}
               className="text-white/50 hover:text-white font-sans-body text-[1rem] leading-none outline-none select-none cursor-pointer"
+              aria-label="Close announcement"
             >
               &times;
             </button>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import SEO from "../components/seo/SEO";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -128,6 +129,17 @@ export default function ContactPage() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="relative min-h-screen bg-bg-primary select-none font-sans-body w-full overflow-hidden text-text-primary"
     >
+      <SEO 
+        title="Contact Us | Snortweb Technology" 
+        description="Get in touch with Snortweb Technology. Let's discuss your next project, cybersecurity audit, or digital transformation."
+        canonical="/contact"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact Snortweb Technology",
+          "url": "https://snortweb.com/contact"
+        }}
+      />
       {/* Background visual indicators */}
       <div className="pattern-noise absolute inset-0 pointer-events-none z-0" />
       <div className="pattern-horizontal-lines absolute inset-0 pointer-events-none z-0" />

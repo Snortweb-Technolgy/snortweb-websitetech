@@ -1,0 +1,21 @@
+{
+  "name": "Snortweb Technology",
+  "short_name": "Snortweb",
+  "description": "Modern websites with security and performance built-in. Web development and cybersecurity solutions for growing businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/logo-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

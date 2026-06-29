@@ -1,5 +1,6 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -37,7 +38,8 @@ export default function App() {
   useLenis();
 
   return (
-    <div className="relative min-h-screen bg-bg-primary text-text-primary flex flex-col justify-between overflow-x-hidden">
+    <HelmetProvider>
+      <div className="relative min-h-screen bg-bg-primary text-text-primary flex flex-col justify-between overflow-x-hidden">
       {/* Scroll manager */}
       <ScrollToTop />
 
@@ -71,6 +73,7 @@ export default function App() {
       {/* Bottom info grid links */}
       <Footer />
     </div>
+    </HelmetProvider>
   );
 }
 
