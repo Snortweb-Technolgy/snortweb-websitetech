@@ -1,0 +1,330 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0C0A; /* Deep obsidian */
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 161, 90, 0.35); /* Gold accent */
+  border-radius: 99px;
+  border: 2px solid #0D0C0A;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 161, 90, 0.65);
+}
+
+
+/* Design tokens for Snortweb website: Light vs Linear Dark System */
+:root {
+  --bg-primary: #F7F3EB;        /* Warm luxury ivory background */
+  --bg-secondary: #F4EEE4;      /* Secondary warm background */
+  --bg-elevated: #F2ECE2;       /* Section alternate warm surface */
+  --bg-card: #FBF8F2;           /* Card surface warm off-white */
+  --text-primary: #24211C;      /* Heading charcoal */
+  --text-secondary: #5E5A52;    /* Paragraph warm grey */
+  --text-tertiary: #8B857B;     /* Muted warm label */
+  --text-quaternary: #B5AFA5;   /* Quaternary subtle */
+  --border-main: rgba(200, 161, 90, 0.25);  /* Border Gold subtle */
+  --border-subtle: rgba(200, 161, 90, 0.12);
+  --brand-indigo: #C8A15A;      /* Primary Gold accent */
+  
+  --font-heading: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "Space Grotesk", sans-serif;
+  
+  --background: #F7F3EB;
+  --foreground: #24211C;
+  --muted: #F4EEE4;
+  --muted-foreground: #5E5A52;
+  --border: rgba(200, 161, 90, 0.25);
+  --border-light: rgba(200, 161, 90, 0.12);
+}
+
+.dark {
+  --bg-primary: #161616;      /* Deep charcoal background */
+  --bg-secondary: #1E1E1E;    /* Secondary background */
+  --bg-elevated: #262626;     /* Muted elevated surfaces */
+  --bg-card: #1E1E1E;         /* Card background in dark mode */
+  --text-primary: #F5F3EF;    /* Warm Linen White contrast text */
+  --text-secondary: #9FA1A6;  /* Muted silver copy text */
+  --text-tertiary: #73757A;   /* Muted gray labels */
+  --text-quaternary: #4C4D52; /* Faint accent indicators */
+  --border-main: #232323;     /* Graphite gray border */
+  --border-subtle: rgba(200, 161, 90, 0.08); /* Gold border glow */
+  --brand-indigo: #C8A15A;    /* Luxury Gold brand color */
+  
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --background: #161616;
+  --foreground: #F5F3EF;
+  --muted: #1E1E1E;
+  --muted-foreground: #9FA1A6;
+  --border: #232323;
+  --border-light: rgba(200, 161, 90, 0.08);
+}
+
+@theme {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --color-muted: var(--bg-secondary);
+  --color-muted-foreground: var(--text-secondary);
+  --color-accent: var(--brand-indigo);
+  --color-accent-foreground: var(--text-primary);
+  --color-border: var(--border-main);
+  --color-border-light: var(--border-subtle);
+
+  /* Backward compatibility theme mappings */
+  --color-bg-base: var(--bg-primary);
+  --color-bg-surface: var(--bg-secondary);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-card: var(--bg-card, var(--bg-secondary));
+  --color-primary: var(--text-primary);
+  --color-primary-bright: var(--brand-indigo);
+  --color-gold: var(--brand-indigo);
+  --color-gold-bright: var(--brand-indigo);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-quaternary: var(--text-quaternary);
+  --color-border-main: var(--border-main);
+  --color-border-subtle: var(--border-subtle);
+  --color-brand-indigo: var(--brand-indigo);
+  --color-obsidian: var(--bg-primary);
+  --color-platinum: var(--bg-secondary);
+
+  --font-sans-heading: var(--font-heading);
+  --font-sans-body: var(--font-body);
+  --font-mono-code: var(--font-mono);
+
+  --text-hero: clamp(2.5rem, 5.5vw, 5.5rem);
+  --text-display: clamp(2.2rem, 5vw, 5.5rem);
+  --text-title: clamp(1.6rem, 3vw, 2.5rem);
+  --text-body: 1.05rem;
+  --text-small: 0.875rem;
+  --text-micro: 0.75rem;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-pill: 9999px;
+
+  --shadow-hairline: 0px 1px 0px 0px rgba(200, 161, 90, 0.08);
+  --shadow-low: 0px 2px 8px 0px rgba(200, 161, 90, 0.06);
+  --shadow-inset-overlay: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.04);
+  --shadow-border-inset: inset 0px 0px 0px 1px rgba(200, 161, 90, 0.12);
+  --shadow-border-outer: 0px 0px 0px 1px rgba(200, 161, 90, 0.12);
+  --shadow-card: 0px 1px 3px rgba(200, 161, 90, 0.04), 0px 4px 12px rgba(200, 161, 90, 0.03);
+}
+
+/* Custom resets */
+html {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle luxury paper-like grain texture overlay (Only active in light theme) */
+html:not(.dark) body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: 
+    repeating-linear-gradient(45deg, rgba(200, 161, 90, 0.012) 0px, rgba(200, 161, 90, 0.012) 1px, transparent 1px, transparent 8px),
+    repeating-linear-gradient(-45deg, rgba(200, 161, 90, 0.012) 0px, rgba(200, 161, 90, 0.012) 1px, transparent 1px, transparent 8px);
+  opacity: 0.85;
+}
+
+/* Soft gold mesh wave in the bottom-right corner with 5% opacity (Only active in light theme) */
+html:not(.dark) body::after {
+  content: "";
+  position: fixed;
+  bottom: -150px;
+  right: -150px;
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.05;
+  background: radial-gradient(circle at 100% 100%, transparent 40%, #C8A15A 41%, transparent 42%),
+              radial-gradient(circle at 100% 100%, transparent 50%, #C8A15A 51%, transparent 52%),
+              radial-gradient(circle at 100% 100%, transparent 60%, #C8A15A 61%, transparent 62%),
+              radial-gradient(circle at 100% 100%, transparent 70%, #C8A15A 71%, transparent 72%),
+              radial-gradient(circle at 100% 100%, transparent 80%, #C8A15A 81%, transparent 82%);
+  background-size: 100% 100%;
+}
+
+/* Typography settings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-feature-settings: "ss01", "cv01", "cv03";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Light theme: editorial serif with tight tracking */
+html:not(.dark) h1, html:not(.dark) h2, html:not(.dark) h3 {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.dark h1, .dark h2, .dark h3 {
+  letter-spacing: -0.025em; /* precise negative letter-spacing for dark mode sizes */
+}
+
+.hero-headline {
+  letter-spacing: -0.03em;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-indigo);
+}
+
+/* Premium Textures & Patterns */
+.pattern-horizontal-lines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    var(--text-primary) 1px,
+    var(--text-primary) 2px
+  );
+  background-size: 100% 4px;
+  opacity: 0.015;
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(var(--text-primary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--text-primary) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.015;
+}
+
+.pattern-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    var(--text-primary) 40px,
+    var(--text-primary) 42px
+  );
+  opacity: 0.01;
+}
+
+.pattern-noise {
+  display: none;
+}
+
+/* Inverted textures */
+.pattern-vertical-lines-light {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 1px,
+    #ffffff 1px,
+    #ffffff 2px
+  );
+  background-size: 4px 100%;
+  opacity: 0.03;
+}
+
+.pattern-radial-light {
+  background-image: radial-gradient(
+    circle at top center,
+    #ffffff,
+    transparent 70%
+  );
+  opacity: 0.05;
+}
+
+/* Custom drop cap */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  line-height: 0.8;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 8px;
+  margin-right: 8px;
+  border: 2px solid var(--text-primary);
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+/* Text links hover styling */
+a:not(.nav-link-no-underline) {
+  background-image: linear-gradient(var(--text-primary), var(--text-primary));
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  transition: background-size 0.3s ease;
+}
+
+a:not(.nav-link-no-underline):hover {
+  background-size: 100% 1px;
+}
+
+/* Lenis smooth scroll adjustments */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
